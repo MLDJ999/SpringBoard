@@ -54,6 +54,9 @@
   		   본문수정GET : /board/modify?bno=000
   		   본문수정POST : /board/modify
   		   본문삭제POST : /board/remove?bno=000
+  		   
+  		   
+테스트입니다.
   
   
   
