@@ -48,7 +48,23 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	// http://localhost:8088/board/list
+	@RequestMapping(value = "list" , method = RequestMethod.GET)
+	public void listGET() {
+		logger.debug(" listGET() 실행 ");
+		logger.debug(" /board/list.jsp 연결");
+		// 서비스 -> DAO 게시판 글 목록 가져오기
+		
+		
+		// 연결된 뷰페이지에 정보 전달
+		
+		
+	}
+}
+	
+	
+	
 
 	
 
-}
+
