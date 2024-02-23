@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="../include/header.jsp"%>
+
+<%-- ${boardList.size() } --%>
 
 <div class="content">
 	<div class="box">
@@ -20,15 +24,20 @@
 						<th style="width: 40px">viewcnt</th>
 						<th>regdate</th>
 					</tr>
+					
+					<c:forEach var="bVO" items="${boardList }">
 					<tr>
-						<td>1.</td>
-						<td>Update software</td>
+						<td>${bVO.bno }</td>
+						<td>${bVO.title }</td>
 						<td>
-							ITWILL
+							${bVO.writer }
 						</td>
-						<td><span class="badge bg-red">55%</span></td>
-						<td>2000.00.00</td>
+						<td><span class="badge bg-red">${bVO.viewcnt }</span></td>
+						<td>
+							<fmt:formatDate value="${bVO.regdate }" pattern="yyyy.MM.dd"/>
+						</td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>

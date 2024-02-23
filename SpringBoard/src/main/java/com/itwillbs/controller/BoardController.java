@@ -1,10 +1,13 @@
 package com.itwillbs.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -50,13 +53,15 @@ public class BoardController {
 	
 	// http://localhost:8088/board/list
 	@RequestMapping(value = "list" , method = RequestMethod.GET)
-	public void listGET() {
+	public void listGET(Model model) throws Exception {
 		logger.debug(" listGET() 실행 ");
 		logger.debug(" /board/list.jsp 연결");
 		// 서비스 -> DAO 게시판 글 목록 가져오기
-		
+		List<BoardVO> boardList = bService.getList();
+		logger.debug(" list.size : " + boardList.size());
 		
 		// 연결된 뷰페이지에 정보 전달
+		model.addAttribute("boardList", boardList);
 		
 		
 	}
