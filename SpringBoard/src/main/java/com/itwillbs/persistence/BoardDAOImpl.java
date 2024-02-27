@@ -39,4 +39,13 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectList(NAMESPACE+".selectBoardList");
 	}
 
+	@Override
+	public BoardVO boardSelect(Integer bno) throws Exception {
+		logger.debug(" boardSelect(Integer bno) -> mapper 호출 ");
+		
+		return sqlSession.selectOne(NAMESPACE+".selectBoard",bno);
+	}
+
+
+
 }

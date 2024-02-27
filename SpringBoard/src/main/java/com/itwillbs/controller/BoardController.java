@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.service.BoardService;
@@ -51,6 +52,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	// listGET
 	// http://localhost:8088/board/list
 	@RequestMapping(value = "list" , method = RequestMethod.GET)
 	public void listGET(Model model) throws Exception {
@@ -62,6 +64,26 @@ public class BoardController {
 		
 		// 연결된 뷰페이지에 정보 전달
 		model.addAttribute("boardList", boardList);
+	}
+	
+	// 본문읽기 GET
+	// http://localhost:8088/board/read?bno=1
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void readGET(@RequestParam("bno") int bno, Model model) throws Exception {
+		// @ModelAttribute : 파라메터 저장 + 영역 저장 (1:n 관계)
+		// @RequestParam : 파라메터 저장 (1:1 관계)
+		logger.debug(" readGET() 호출 ");
+		
+		// 전달정보 저장
+		logger.debug(" bno: " + bno);
+		
+		// 서버스 -> DAO 게시판 글 정보 조회 동작
+		BoardVO vo = bService.read(bno);
+		// 해당정보를 저장 -> 연결된 뷰페이지로 전달(model)
+		//model.addAttribute(bService.read(bno));
+		model.addAttribute("vo",vo);
+		
+		// 뷰페이지로 이동
 		
 		
 	}
@@ -71,5 +93,17 @@ public class BoardController {
 	
 
 	
+
+
+
+
+
+
+
+
+
+
+
+
 
 
