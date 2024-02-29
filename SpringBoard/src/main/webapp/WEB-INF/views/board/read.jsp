@@ -45,7 +45,10 @@
 	<!-- jQuery 사용 -->
 	<!-- jQuery 라이브러리 추가( include/header.jsp 파일에 추가되어 있음 ) -->
 	<script>
+	
+		
 		$(document).ready(function(){
+			var formObj = $("form[role='form']");
 			//alert("Test");
 			// '목록으로' 버튼 클릭시
 			$(".btn-success").click(function(){
