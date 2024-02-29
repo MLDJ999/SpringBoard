@@ -25,6 +25,8 @@ public interface BoardDAO {
 	// 글 조회
 	public BoardVO boardSelect(Integer bno) throws Exception;
 	
+	// 글 삭제
+	public void boardDelete(int bno) throws Exception;
 	
 
 }

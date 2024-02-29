@@ -21,6 +21,9 @@ public interface BoardService {
 	// 글 조회 동작
 	public BoardVO read(Integer bno) throws Exception ;
 	
+	// 글 삭제 동작
+	public void removeBoard(int bno) throws Exception;
+	
 	
 
 }

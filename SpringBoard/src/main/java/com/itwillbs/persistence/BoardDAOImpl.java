@@ -46,6 +46,13 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE+".selectBoard",bno);
 	}
 
+	@Override
+	public void boardDelete(int bno) throws Exception {
+		logger.debug(" boardDelete(int bno) -> mapper 호출 ");
+		
+		sqlSession.delete(NAMESPACE+".deleteBoard",bno);
+	}
+
 
 
 }

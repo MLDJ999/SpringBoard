@@ -84,9 +84,26 @@ public class BoardController {
 		model.addAttribute("vo",vo);
 		
 		// 뷰페이지로 이동
-		
-		
 	}
+	
+	// 본문삭제POST : /board/remove  +  (post)bno=000
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String removePOST(@RequestParam("bno")int bno) throws Exception {
+		logger.debug(" /board/remove -> removePOST() 호출 ");
+		
+		// 전달정보 bno
+		logger.debug(" bno : " + bno);
+		
+		// 서비스 -> DAO 게시판글 삭제 동작
+		bService.removeBoard(bno);
+		
+		// 페이지 이동 ( /board/list )
+		
+		
+		return "redirect:/board/list";
+	}
+	
+	
 }
 	
 	

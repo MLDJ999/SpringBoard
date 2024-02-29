@@ -3,8 +3,15 @@
 %>
 
 <%@ include file="../include/header.jsp"%>
+
+
 <div class="content">
 	<h1>read.jsp</h1>
+	<form role="form" action = "" method = "get" class="fm">
+		<input type = "hidden" name="bno" value="${vo.bno }">
+	</form>
+	
+	
 </div>
 <div class="box box-primary">
 	<div class="box-header with-border">
@@ -46,14 +53,18 @@
 				// 목록으로 이동
 				location.href="/board/list";
 			});
+			
 			$(".btn-warning").click(function(){
 				alert(" '삭제하기' 버튼 클릭! ");
-				// 목록으로 이동
-				location.href="/board/delete";
+				formObj.attr("action","/board/remove");
+				formObj.attr("method","post");
+				formObj.submit();
 			});
+			
 			$(".btn-danger").click(function(){
 				alert(" '수정하기' 버튼 클릭! ")
-				location.href="/board/rewrite";
+				formObj.attr("action","/board/modify");
+				formObj.submit();
 			});
 
 		});
