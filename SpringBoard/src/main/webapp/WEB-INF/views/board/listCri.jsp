@@ -5,6 +5,9 @@
 
 <%-- ${boardList.size() } --%>
 viewUpdateStatus : ${viewUpdateStatus }
+
+cri.page = ${param.page } <br>
+cri : ${cri }
 <div class="content">
 
 	<div class="box">
@@ -27,7 +30,7 @@ viewUpdateStatus : ${viewUpdateStatus }
 						<tr>
 							<td>${bVO.bno }</td>
 							<td>
-								<a href="/board/read?bno=${bVO.bno }">${bVO.title }</a>
+								<a href="/board/read?bno=${bVO.bno }&page=${cri.page }&pageSize=${cri.pageSize }" >${bVO.title }</a>
 							</td>
 							<td>
 								${bVO.writer }
